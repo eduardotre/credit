@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # My apps
     'phonenumber_field',
     'credit_apply',
+    'users',
 
     # 3rd Party apps
     'bootstrap4',
