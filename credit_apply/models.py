@@ -1,6 +1,8 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
+from django.contrib.auth import get_user_model as user_model
 
+User = user_model()
 # Create your models here.
 
 
@@ -13,6 +15,7 @@ class Application(models.Model):
     email = models.EmailField(max_length=254, unique=True)
 
     date_added = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.email
+        return f"{self.first_name} {self.last_name} {self.business}"

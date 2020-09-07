@@ -135,3 +135,6 @@ STATIC_URL = '/static/'
 
 # Phone settings
 PHONENUMBER_DEFAULT_REGION = 'MX'
+
+# login settings
+LOGIN_URL = 'credit_apply:index'  # Note to self: update this later so it goes to a page and tells u to login or register

@@ -1,0 +1,20 @@
+{% extends 'credit_apply/base.html' %}
+
+{% load bootstrap4 %}
+
+{% block page_header %}
+    <h2>Edit your application</h2>
+{% endblock page_header %}
+
+{% block content %}
+
+    <form method="post" action="{% url 'credit_apply:submission' %}" class="form">
+        {% bootstrap_form form %}
+        {% csrf_token %}
+        {% buttons %}
+            <button name="edit" class="btn btn-primary">Enviar</button>
+        {% endbuttons %}
+        <input type="hidden" name="next"
+            value="{% url 'credit_apply:submitted' %}" />
+    </form>
+{% endblock content %}

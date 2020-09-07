@@ -17,18 +17,24 @@
     <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark mb-4 ">
 
         <a class="navbar-brand" href="{% url 'credit_apply:index'%}">
-        Creditos Gustavo</a>
+        Creditos</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarCollapse" aria-controls="navbarCollapse"
             aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span></button>
-           <div class="collapse navbar-collapse" id="navbarCollapse">
+        <span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'credit_apply:apply'%}">
-                    Aplica!</a></li>
+                <a class="nav-link" href="{% url 'credit_apply:apply'%}">
+                Aplica!</a></li>
+                {% if user.is_authenticated %}
+                  <li class="nav-item">
+                  <a class="nav-link" href="{% url 'credit_apply:submission' %}">
+                  Edita!</a></li>
+                {% endif %}
             </ul>
+
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -45,7 +51,7 @@
                         <a class="nav-link" href="{% url 'users:login' %}">Log in</a></li>
                 {% endif %}
             </ul>
-
+            </div>
     </nav>
 
     <main role="main" class="container">
