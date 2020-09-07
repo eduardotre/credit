@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 
@@ -63,7 +66,8 @@ ROOT_URLCONF = 'credit.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        # DEFAULT 'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,4 +141,6 @@ STATIC_URL = '/static/'
 PHONENUMBER_DEFAULT_REGION = 'MX'
 
 # login settings
-LOGIN_URL = 'credit_apply:index'  # Note to self: update this later so it goes to a page and tells u to login or register
+# Note to self: update this later so it goes to a page and tells u to login
+# or register
+LOGIN_URL = 'users:login'

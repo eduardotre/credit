@@ -7,7 +7,8 @@ class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
         exclude = ('owner',)
-        fields = ['first_name', 'last_name', 'business', 'm_number', 'email']
+        fields = ['first_name', 'last_name',
+                  'business', 'm_number', 'email', 'income']
         labels = {'first_name': 'Nombre', 'last_name': 'Apellidos',
                   'business': 'Employer', 'm_number': 'Numero Telefonico',
-                  'email': 'Correo Electronico'}
+                  'email': 'Correo Electronico', 'income': 'Ingresos netos mensuales (Pesos)'}

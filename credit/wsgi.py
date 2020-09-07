@@ -11,6 +11,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'credit.settings')
+if os.environ.get('DJANGO_ENV') == 'production':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'credit.production')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'credit.settings')
 
 application = get_wsgi_application()

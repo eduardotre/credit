@@ -2,3 +2,5 @@ c_env
 __pycache__/
 *.sqlite3
 .ds_store
+.env
+.azure
